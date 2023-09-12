@@ -2,12 +2,12 @@
 #include <stdio.h>
 #include "../include/fraction.h"
 
-fraction_t create_fraction(int n, int d) {
-    fraction_t f = {n, d};
+Fraction create_fraction(int n, int d) {
+    Fraction f = {n, d};
     return f;
 }
 
-fraction_t fraction_from_float(float n) {
+Fraction fraction_from_float(float n) {
     int d = 1;
 
     while ((int) n != n) {
@@ -18,7 +18,7 @@ fraction_t fraction_from_float(float n) {
     return create_fraction(n, d);
 }
 
-fraction_t fraction_from_double(double n) {
+Fraction fraction_from_double(double n) {
     int d = 1;
 
     while ((int) n != n) {
@@ -29,8 +29,8 @@ fraction_t fraction_from_double(double n) {
     return create_fraction(n, d);
 }
 
-fraction_t add_fractions_by_components(int n1, int d1, int n2, int d2) {
-    fraction_t result;
+Fraction add_fractions_by_components(int n1, int d1, int n2, int d2) {
+    Fraction result;
 
     if (d1 == d2) {
         result.n = n1 + n2;
@@ -48,8 +48,8 @@ fraction_t add_fractions_by_components(int n1, int d1, int n2, int d2) {
     return result;
 }
 
-fraction_t multiply_fractions_by_components(int n1, int d1, int n2, int d2) {
-    fraction_t result;
+Fraction multiply_fractions_by_components(int n1, int d1, int n2, int d2) {
+    Fraction result;
 
     result.n = n1 * n2;
     result.d = d1 * d2;
@@ -62,7 +62,7 @@ fraction_t multiply_fractions_by_components(int n1, int d1, int n2, int d2) {
     return result;
 }
 
-char* fraction_as_string(fraction_t f) {
+char* fraction_as_string(Fraction f) {
     char* str;
 
     if (f.d == 1) {

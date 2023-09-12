@@ -4,12 +4,12 @@
 #include "../include/fraction.h"
 
 int main() {
-    fraction_t a = fraction_from_int(2);
+    Fraction a = fraction_from_int(2);
 
     assert(a.n == 2);
     assert(a.d == 1);
 
-    fraction_t b = fraction_from_float(10.5);
+    Fraction b = fraction_from_float(10.5);
 
     assert(!compare_fractions(a, b));
     assert(compare_fractions(a, a));
