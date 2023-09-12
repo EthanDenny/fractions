@@ -11,11 +11,17 @@ int main() {
 
     Fraction b = fraction_from_float(10.5);
 
+    assert(b.n == 21);
+    assert(b.d == 2);
+
+    b = fraction_from_double(10.5);
+    
+    assert(b.n == 21);
+    assert(b.d == 2);
+
     assert(!compare_fractions(a, b));
     assert(compare_fractions(a, a));
     assert(compare_fractions(b, b));
-
-    assert(b.n == 21);
 
     negate_fraction(a);
 
@@ -41,6 +47,7 @@ int main() {
 
     assert(fraction_as_integer(a) == -2);
     assert(fraction_as_float(b) == 0.095238097012042999267578125);
+    assert(fraction_as_double(b) == 0.095238095238095233);
     assert(strcmp(fraction_as_string(b), "2/21") == 0);
     
     printf("All tests passed.\n");
