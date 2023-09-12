@@ -2,6 +2,33 @@
 #include <stdio.h>
 #include "../include/fraction.h"
 
+fraction_t create_fraction(int n, int d) {
+    fraction_t f = {n, d};
+    return f;
+}
+
+fraction_t fraction_from_float(float n) {
+    int d = 1;
+
+    while ((int) n != n) {
+        n *= 2;
+        d *= 2;
+    }
+
+    return create_fraction(n, d);
+}
+
+fraction_t fraction_from_double(double n) {
+    int d = 1;
+
+    while ((int) n != n) {
+        n *= 2;
+        d *= 2;
+    }
+
+    return create_fraction(n, d);
+}
+
 fraction_t add_fractions_by_components(int n1, int d1, int n2, int d2) {
     fraction_t result;
 
@@ -33,24 +60,6 @@ fraction_t multiply_fractions_by_components(int n1, int d1, int n2, int d2) {
     }
 
     return result;
-}
-
-fraction_t fraction_from_int(int n) {
-    fraction_t f = {n, 1};
-    return f;
-}
-
-fraction_t fraction_from_float(float n) {
-    int d = 1;
-
-    while ((int) n != n) {
-        n *= 2;
-        d *= 2;
-    }
-
-    fraction_t f = {n, d};
-
-    return f;
 }
 
 char* fraction_as_string(fraction_t f) {
